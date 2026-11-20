@@ -1,0 +1,31 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--bg:#050505;--bg2:#0B0B0D;--gold:#D4AF37;--champ:#C6A667;--deep:#8C6A28;--ink:#F5F1E8;--mute:rgba(245,241,232,.62);--line:rgba(198,166,103,.28);--glass:rgba(5,5,5,.72);
+--gold-grad:linear-gradient(110deg,#8C6A28 0%,#F3DE9A 28%,#D4AF37 48%,#8C6A28 70%,#E9CF85 100%)}
+[data-theme=light]{--bg:#F5F1E8;--bg2:#ECE5D6;--gold:#9A7418;--champ:#8C6A28;--deep:#6B4F16;--ink:#1d1b17;--mute:rgba(29,27,23,.68);--line:rgba(140,106,40,.35);--glass:rgba(245,241,232,.8)}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;font-family:'Manrope','IBM Plex Sans Arabic',sans-serif;transition:background .5s,color .5s}
+[dir=rtl] body,[dir=rtl] button,[dir=rtl] input,[dir=rtl] textarea{font-family:'IBM Plex Sans Arabic',sans-serif}
+.display{font-family:'Cinzel','Alexandria',serif}[dir=rtl] .display{font-family:'Alexandria',sans-serif;font-weight:800;letter-spacing:0}
+.serif{font-family:'Cormorant Garamond','IBM Plex Sans Arabic',serif}
+.gold-text{background:var(--gold-grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 6s linear infinite}
+@keyframes shim{to{background-position:-220% 0}}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2rem;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;overflow:hidden;font-weight:500;text-decoration:none;isolation:isolate;transition:color .3s,border-color .3s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold-grad);transform:translateX(-101%);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.btn:hover::before{transform:none}.btn:hover{color:#050505;border-color:var(--gold)}.btn:disabled,.btn[aria-disabled=true]{opacity:.4;cursor:not-allowed}
+.btn.solid{background:var(--gold-grad);color:#050505;border-color:transparent}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:rp .6s ease-out;pointer-events:none}@keyframes rp{to{transform:scale(4);opacity:0}}
+.card{position:relative;border:1px solid var(--line);background:linear-gradient(160deg,var(--bg2),var(--bg));padding:2rem;transition:transform .2s,border-color .3s;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(212,175,55,.2),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}.card:hover::after{opacity:1}.card:hover{border-color:var(--gold)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.field{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);padding:1rem 0;color:var(--ink);font-size:1rem}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold-grad);transform-origin:0 50%;z-index:90}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.num{font-family:'Cinzel',serif;-webkit-text-stroke:1px var(--champ);color:transparent;line-height:1}
+.gb{position:relative}.gb::before{content:"";position:absolute;inset:0;padding:1px;background:var(--gold-grad);background-size:300% 100%;animation:shim2 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@keyframes shim2{to{background-position:-300% 0}}
+.tw{overflow:hidden;padding:.1em 0}.sl-title .word{display:inline-block}
+.streak{position:absolute;top:-20%;height:140%;width:2px;background:linear-gradient(transparent,#F3DE9A,transparent);opacity:.35;transform:rotate(18deg);pointer-events:none}
+.swiper{overflow:hidden}
+.sl-title{color:var(--gold)}
+.sl-title .word,.sl-title .char{background:var(--gold-grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shim 6s linear infinite}
+.sl-title .word .char{animation:none}
